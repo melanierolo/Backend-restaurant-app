@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-05-25T14:02:34.237Z"
+    "x-generation-date": "2022-05-25T17:44:10.617Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -28,7 +28,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "http://172.23.128.1:1338/api",
       "description": "Development server"
     }
   ],
@@ -63,7 +63,8 @@
                 "type": "object"
               },
               {
-                "type": "array"
+                "type": "array",
+                "items": []
               }
             ]
           },
@@ -88,8 +89,12 @@
       },
       "DishRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [],
             "type": "object",
             "properties": {
               "name": {
@@ -3376,8 +3381,12 @@
       },
       "OrderRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [],
             "type": "object",
             "properties": {
               "address": {
@@ -4076,8 +4085,12 @@
       },
       "RestaurantRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [],
             "type": "object",
             "properties": {
               "name": {
@@ -7361,14 +7374,41 @@
       },
       "UploadFileRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
             "type": "object",
             "properties": {
               "name": {
                 "type": "string"
               },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {},
               "hash": {
+                "type": "string"
+              },
+              "ext": {
                 "type": "string"
               },
               "mime": {
@@ -7381,8 +7421,26 @@
               "url": {
                 "type": "string"
               },
+              "previewUrl": {
+                "type": "string"
+              },
               "provider": {
                 "type": "string"
+              },
+              "provider_metadata": {},
+              "related": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
               }
             }
           }
@@ -8157,12 +8215,29 @@
       },
       "UsersPermissionsPermissionRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [
+              "action"
+            ],
             "type": "object",
             "properties": {
               "action": {
                 "type": "string"
+              },
+              "role": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
@@ -9333,12 +9408,52 @@
       },
       "UsersPermissionsRoleRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [
+              "name"
+            ],
             "type": "object",
             "properties": {
               "name": {
                 "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "permissions": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
               }
             }
           }
@@ -10567,8 +10682,15 @@
       },
       "UsersPermissionsUserRequest": {
         "type": "object",
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
+            "required": [
+              "username",
+              "email"
+            ],
             "type": "object",
             "properties": {
               "username": {
@@ -10577,6 +10699,37 @@
               "email": {
                 "type": "string",
                 "format": "email"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string",
+                "format": "password",
+                "example": "*******"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
