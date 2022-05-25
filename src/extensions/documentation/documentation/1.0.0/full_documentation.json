@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-05-25T17:44:10.617Z"
+    "x-generation-date": "2022-05-25T18:12:27.520Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -28,7 +28,7 @@
   },
   "servers": [
     {
-      "url": "http://172.23.128.1:1338/api",
+      "url": "http://https://melanie-rodas-fullstack-restau.herokuapp.com/:1338/api",
       "description": "Development server"
     }
   ],

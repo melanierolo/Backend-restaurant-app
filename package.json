@@ -9,7 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi",
     "build:win": "cross-env NODE_ENV=production npm run build",
-    "start:win": "cross-env NODE_ENV=production npm start"
+    "start:win": "cross-env NODE_ENV=production npm start",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@strapi/plugin-documentation": "^4.1.11",
